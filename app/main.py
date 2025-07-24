@@ -64,6 +64,9 @@ def shorten_api():
         'short_url': request.host_url + short_code
     }), 201
 
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({'status': 'healthy'}), 200
 
 # Admin view of all shortened URLs
 @app.route('/admin')
