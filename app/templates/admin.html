@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shortened URLs List</title>
+</head>
+<body>
+  <h1>Shortened URLs List</h1>
+  <table border="1">
+    <tr>
+      <th>Original URL</th>
+      <th>Short URL</th>
+      <th>Click Count</th>
+    </tr>
+    {% for url in urls %}
+    <tr>
+      <td>{{ url.original_url }}</td>
+      <td><a href="{{ url.short_code }}">{{ request.host_url + url.short_code }}</a></td>
+      <td>{{ url.click_count }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
